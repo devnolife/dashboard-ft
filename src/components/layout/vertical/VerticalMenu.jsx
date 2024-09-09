@@ -63,6 +63,8 @@ const VerticalMenu = ({ scrollMenu }) => {
         </MenuItem>
         <MenuItem href='/mahasiswa' icon={<i className='tabler-user' />}>
           Mahasiswa
+        </MenuItem><MenuItem href='/kordinator-lab' icon={<i className='tabler-table-share' />}>
+          Kordinator LAB
         </MenuItem>
       </Menu>
       {/* <Menu

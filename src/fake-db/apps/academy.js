@@ -1,8 +1,8 @@
 export const db = {
-  courses: [
+  testo: [
     {
       id: 1,
-      user: 'Lauretta Coie',
+      user: 'nama dosen pa',
       image: '/images/avatars/1.png',
       tutorImg: '/images/apps/academy/1.png',
       completedTasks: 19,
@@ -11,9 +11,9 @@ export const db = {
       note: 20,
       view: 83,
       time: '17h 34m',
-      logo: 'tabler-brand-angular',
-      color: 'error',
-      courseTitle: 'Basics of Angular',
+      logo: 'tabler-file',
+      color: 'success',
+      courseTitle: 'Kartu Kontrol PA',
       desc: 'Introductory course for Angular and framework basics with TypeScript',
       tags: 'Web',
       rating: 4.4,
@@ -21,7 +21,7 @@ export const db = {
     },
     {
       id: 2,
-      user: 'Maybelle Zmitrovich',
+      user: 'Kepala LAB',
       tutorImg: '/images/apps/academy/2.png',
       image: '/images/avatars/2.png',
       completedTasks: 48,
@@ -30,17 +30,17 @@ export const db = {
       note: 48,
       view: 43,
       time: '19h 17m',
-      logo: 'tabler-palette',
+      logo: 'tabler-augmented-reality',
       color: 'warning',
       desc: 'Learn how to design a beautiful & engaging mobile app with Figma',
-      courseTitle: 'UI/UX Design',
+      courseTitle: 'LAB',
       tags: 'Design',
       rating: 4.9,
       ratingCount: 10
     },
     {
       id: 3,
-      user: 'Gertie Langwade',
+      user: 'nama dosen pb',
       image: '/images/avatars/2.png',
       tutorImg: '/images/apps/academy/3.png',
       completedTasks: 87,
@@ -52,14 +52,14 @@ export const db = {
       logo: 'tabler-brand-react-native',
       color: 'info',
       desc: 'Master React.js: Build dynamic web apps with front-end technology',
-      courseTitle: 'React Native',
+      courseTitle: 'Kelengkapan KKP',
       tags: 'Web',
       rating: 4.8,
       ratingCount: 9
     },
     {
       id: 4,
-      user: 'Estella Chace',
+      user: 'proposal',
       image: '/images/avatars/3.png',
       completedTasks: 33,
       tutorImg: '/images/apps/academy/4.png',
@@ -70,7 +70,7 @@ export const db = {
       time: '15h 49m',
       logo: 'tabler-pencil',
       color: 'success',
-      courseTitle: 'Art & Drawing',
+      courseTitle: 'Proposal',
       desc: 'Easy-to-follow video & guides show you how to draw animals & people.',
       tags: 'Design',
       rating: 4.7,
@@ -78,7 +78,7 @@ export const db = {
     },
     {
       id: 5,
-      user: 'Euell Bownass',
+      user: 'ujian hasil',
       tutorImg: '/images/apps/academy/5.png',
       image: '/images/avatars/6.png',
       completedTasks: 100,
@@ -89,7 +89,7 @@ export const db = {
       time: '12h 42m',
       logo: 'tabler-star',
       color: 'primary',
-      courseTitle: 'Basic Fundamentals',
+      courseTitle: 'Ujian Hasil',
       desc: 'Learn the basics of the most popular programming language.',
       tags: 'Web',
       rating: 4.6,
@@ -97,7 +97,7 @@ export const db = {
     },
     {
       id: 6,
-      user: 'Terrye Etches',
+      user: 'ujian tutup',
       tutorImg: '/images/apps/academy/6.png',
       image: '/images/avatars/3.png',
       completedTasks: 23,
@@ -108,12 +108,14 @@ export const db = {
       time: '1h 42m',
       logo: 'tabler-brand-react-native',
       color: 'info',
-      courseTitle: 'React for Beginners',
+      courseTitle: 'Ujian Tutup',
       desc: 'Learn React in just a couple of afternoons with this immersive course',
       tags: 'Web',
       rating: 4.5,
       ratingCount: 68
     },
+  ],
+  courses: [
     {
       id: 7,
       user: 'Papageno Sloy',

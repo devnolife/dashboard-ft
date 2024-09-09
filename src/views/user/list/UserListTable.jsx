@@ -291,22 +291,22 @@ const UserListTable = ({ tableData }) => {
               placeholder='Search User'
               className='max-sm:is-full'
             />
-            <Button
-              color='secondary'
-              variant='tonal'
-              startIcon={<i className='tabler-upload' />}
-              className='max-sm:is-full'
-            >
-              Export
-            </Button>
-            <Button
-              variant='contained'
-              startIcon={<i className='tabler-plus' />}
-              onClick={() => setAddUserOpen(!addUserOpen)}
-              className='max-sm:is-full'
-            >
-              Add New User
-            </Button>
+            {/*<Button*/}
+            {/*  color='secondary'*/}
+            {/*  variant='tonal'*/}
+            {/*  startIcon={<i className='tabler-upload' />}*/}
+            {/*  className='max-sm:is-full'*/}
+            {/*>*/}
+            {/*  Export*/}
+            {/*</Button>*/}
+            {/*<Button*/}
+            {/*  variant='contained'*/}
+            {/*  startIcon={<i className='tabler-plus' />}*/}
+            {/*  onClick={() => setAddUserOpen(!addUserOpen)}*/}
+            {/*  className='max-sm:is-full'*/}
+            {/*>*/}
+            {/*  Add New User*/}
+            {/*</Button>*/}
           </div>
         </div>
         <div className='overflow-x-auto'>

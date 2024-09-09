@@ -1,8 +1,20 @@
+
 import WelcomeCard from "./WelcomeCard"
-export default function Page() {
+import Dialogs from "./Dialogs"
+import CourseTable from '@views/academy/dashboard/CourseTable'
+
+import { getAcademyData } from '@/app/server/actions'
+
+export default async function Page() {
+  const data = await getAcademyData()
+
   return (
     <>
       <WelcomeCard />
+
+      <CourseTable courseData={data?.testo} />
+
+      <Dialogs />
     </>
   )
 }

@@ -716,5 +716,19 @@ export const db = [
     status: 'active',
     avatar: '/images/avatars/2.png',
     billing: 'Auto Debit'
+  },
+  {
+    id: 51,
+    fullName: 'Beverlie Krabbe',
+    company: 'Kaymbo PVT LTD',
+    role: 'mahaiswa',
+    username: 'bkrabbe1d',
+    country: 'China',
+    contact: '(397) 294-5153',
+    email: 'bkrabbe1d@home.pl',
+    currentPlan: 'company',
+    status: 'Sudah Membayar',
+    avatar: '/images/avatars/2.png',
+    billing: 'Auto Debit'
   }
 ]
