@@ -80,7 +80,7 @@ const columnHelper = createColumnHelper()
 const getCourseUrl = (courseTitle) => {
   switch (courseTitle.toLowerCase()) {
     case 'lab':
-      return '/mahasiswa/course/'
+      return '/mahasiswa/lab/'
     case 'kelengkapan kkp':
       return '/koordinator/kkp/persuratan'
     case 'kartu kontrol pa':
@@ -155,26 +155,6 @@ const CourseTable = ({ courseData }) => {
           </div>
         )
       }),
-      columnHelper.accessor('userCount', {
-        header: 'Status',
-        cell: ({ row }) => (
-          <div className='flex items-center justify-between gap-5'>
-            <div className='flex items-center gap-1.5'>
-              <i className='tabler-users text-primary' />
-              <Typography>{row.original.userCount}</Typography>
-            </div>
-            <div className='flex items-center gap-1.5'>
-              <i className='tabler-book text-info' />
-              <Typography>{row.original.note}</Typography>
-            </div>
-            <div className='flex items-center gap-1.5'>
-              <i className='tabler-video text-error' />
-              <Typography>{row.original.view}</Typography>
-            </div>
-          </div>
-        ),
-        enableSorting: false
-      })
     ],
     // eslint-disable-next-line react-hooks/exhaustive-deps
     []
@@ -211,17 +191,6 @@ const CourseTable = ({ courseData }) => {
 
   return (
     <Card>
-      <CardHeader
-        title='Course you are taking'
-        action={
-          <DebouncedInput
-            value={globalFilter ?? ''}
-            onChange={value => setGlobalFilter(String(value))}
-            placeholder='Search Course'
-          />
-        }
-        className='flex-wrap gap-4'
-      />
       <div className='overflow-x-auto'>
         <table className={tableStyles.table}>
           <thead>

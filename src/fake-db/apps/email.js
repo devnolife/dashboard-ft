@@ -441,7 +441,7 @@ export const db = {
       cc: [],
       bcc: [],
       message:
-        '<p>Hey John, </p><p>You have completed more than 68% of the course</p><p>We noticed that you have not attended or advanced the course for over a week.</p><p>It is very important for us that you finish your studies, as regular classes are a guarantee of knowledge and successful completion!</p><p>For help, we have allocated a free opportunity to contact the course teacher within 2 days</p><p>Regards</p><p>Chase Prando</p>',
+        '<p>Hey John, </p><p>You have completed more than 68% of the lab</p><p>We noticed that you have not attended or advanced the lab for over a week.</p><p>It is very important for us that you finish your studies, as regular classes are a guarantee of knowledge and successful completion!</p><p>For help, we have allocated a free opportunity to contact the lab teacher within 2 days</p><p>Regards</p><p>Chase Prando</p>',
       attachments: [],
       isStarred: false,
       labels: ['company'],

@@ -105,7 +105,7 @@ const Courses = props => {
               <Grid item xs={12} sm={6} md={4} key={index}>
                 <div className='border rounded bs-full'>
                   <div className='pli-2 pbs-2'>
-                    <Link href={'/apps/academy/course-details'} className='flex'>
+                    <Link href={'/apps/academy/lab-details'} className='flex'>
                       <img src={item.tutorImg} alt={item.courseTitle} className='is-full' />
                     </Link>
                   </div>
@@ -122,7 +122,7 @@ const Courses = props => {
                       <Typography
                         variant='h5'
                         component={Link}
-                        href={'/apps/academy/course-details'}
+                        href={'/apps/academy/lab-details'}
                         className='hover:text-primary'
                       >
                         {item.courseTitle}
@@ -153,7 +153,7 @@ const Courses = props => {
                         variant='tonal'
                         startIcon={<i className='tabler-rotate-clockwise-2' />}
                         component={Link}
-                        href={'/apps/academy/course-details'}
+                        href={'/apps/academy/lab-details'}
                       >
                         Start Over
                       </Button>
@@ -165,7 +165,7 @@ const Courses = props => {
                           color='secondary'
                           startIcon={<i className='tabler-rotate-clockwise-2' />}
                           component={Link}
-                          href={'/apps/academy/course-details'}
+                          href={'/apps/academy/lab-details'}
                           className='is-auto flex-auto'
                         >
                           Start Over
@@ -177,7 +177,7 @@ const Courses = props => {
                             <DirectionalIcon ltrIconClass='tabler-chevron-right' rtlIconClass='tabler-chevron-left' />
                           }
                           component={Link}
-                          href={'/apps/academy/course-details'}
+                          href={'/apps/academy/lab-details'}
                           className='is-auto flex-auto'
                         >
                           Continue

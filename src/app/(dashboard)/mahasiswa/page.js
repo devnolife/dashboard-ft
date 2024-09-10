@@ -12,7 +12,7 @@ export default async function Page() {
     <>
       <WelcomeCard />
 
-      <CourseTable courseData={data?.testo} />
+      <CourseTable courseData={data?.mhsList} />
 
       <Dialogs />
     </>
