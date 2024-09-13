@@ -11,19 +11,19 @@ const Avatar = styled(MuiAvatar)(({ skin, color, size, theme }) => {
   return {
     ...(color &&
       skin === 'light' && {
-        backgroundColor: `var(--mui-palette-${color}-lightOpacity)`,
-        color: `var(--mui-palette-${color}-main)`
-      }),
+      backgroundColor: `var(--mui-palette-${color}-lightOpacity)`,
+      color: `var(--mui-palette-${color}-main)`
+    }),
     ...(color &&
       skin === 'light-static' && {
-        backgroundColor: lighten(theme.palette[color].main, 0.84),
-        color: `var(--mui-palette-${color}-main)`
-      }),
+      backgroundColor: lighten(theme.palette[color].main, 0.84),
+      color: `var(--mui-palette-${color}-main)`
+    }),
     ...(color &&
       skin === 'filled' && {
-        backgroundColor: `var(--mui-palette-${color}-main)`,
-        color: `var(--mui-palette-${color}-contrastText)`
-      }),
+      backgroundColor: `var(--mui-palette-${color}-main)`,
+      color: `var(--mui-palette-${color}-contrastText)`
+    }),
     ...(size && {
       height: size,
       width: size

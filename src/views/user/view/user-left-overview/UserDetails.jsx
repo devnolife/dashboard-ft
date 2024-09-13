@@ -38,16 +38,16 @@ const UserDetails = () => {
   return (
     <>
       <Card>
-        <CardContent className='flex flex-col pbs-12 gap-6'>
+        <CardContent className='flex flex-col gap-6 pbs-12'>
           <div className='flex flex-col gap-6'>
-            <div className='flex items-center justify-center flex-col gap-4'>
+            <div className='flex flex-col items-center justify-center gap-4'>
               <div className='flex flex-col items-center gap-4'>
                 <CustomAvatar alt='user-profile' src='/images/avatars/1.png' variant='rounded' size={120} />
                 <Typography variant='h5'>{`${userData.firstName} ${userData.lastName}`}</Typography>
               </div>
               <Chip label='Author' color='secondary' size='small' variant='tonal' />
             </div>
-            <div className='flex items-center justify-around flex-wrap gap-4'>
+            <div className='flex flex-wrap items-center justify-around gap-4'>
               <div className='flex items-center gap-4'>
                 <CustomAvatar variant='rounded' color='primary' skin='light'>
                   <i className='tabler-checkbox' />
@@ -122,7 +122,7 @@ const UserDetails = () => {
               </div>
             </div>
           </div>
-          <div className='flex gap-4 justify-center'>
+          <div className='flex justify-center gap-4'>
             <OpenDialogOnElementClick
               element={Button}
               elementProps={buttonProps('Edit', 'primary', 'contained')}

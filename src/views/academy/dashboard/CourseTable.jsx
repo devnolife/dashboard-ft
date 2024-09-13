@@ -97,15 +97,14 @@ const CourseTable = ({ courseData }) => {
   const [data, setData] = useState(...[courseData])
   const [globalFilter, setGlobalFilter] = useState('')
 
-  // Hooks
-  const { lang: locale } = useParams()
-
   const columns = useMemo(
     () => [
       columnHelper.accessor('courseTitle', {
         header: 'Course Name',
         cell: ({ row }) => {
           const courseUrl = getCourseUrl(row.original.courseTitle)
+
+
           return (
             <div className='flex items-center gap-4'>
               <CustomAvatar variant='rounded' skin='light' color={row.original.color}>
@@ -156,7 +155,6 @@ const CourseTable = ({ courseData }) => {
         )
       }),
     ],
-    // eslint-disable-next-line react-hooks/exhaustive-deps
     []
   )
 
@@ -209,8 +207,8 @@ const CourseTable = ({ courseData }) => {
                         >
                           {flexRender(header.column.columnDef.header, header.getContext())}
                           {{
-                            asc: <i className='tabler-chevron-up text-xl' />,
-                            desc: <i className='tabler-chevron-down text-xl' />
+                            asc: <i className='text-xl tabler-chevron-up' />,
+                            desc: <i className='text-xl tabler-chevron-down' />
                           }[header.column.getIsSorted()] ?? null}
                         </div>
                       </>

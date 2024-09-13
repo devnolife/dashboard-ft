@@ -13,20 +13,13 @@ import { useTheme } from '@mui/material/styles'
 import Card from '@mui/material/Card'
 import CardContent from '@mui/material/CardContent'
 import Button from '@mui/material/Button'
+import Chip from '@mui/material/Chip'
 
 // Third-party Imports
 import classnames from 'classnames'
 
 // Components Imports
 import CustomAvatar from '@core/components/mui/Avatar'
-
-// Component Imports
-
-// Vars
-const data2 = [
-  { icon: 'tabler-calendar', title: '17 Nov 23', value: 'Date' },
-  { icon: 'tabler-clock', title: '32 Minutes', value: 'Duration' }
-]
 
 // Vars
 const data = [
@@ -100,14 +93,14 @@ const WelcomeCard = () => {
   const belowMdScreen = useMediaQuery(theme.breakpoints.down('md'))
 
   return (
-    <div className='flex gap-6 max-md:flex-col md:items-center plb-6'>
+    <div className='flex gap-6 max-md:flex-col md:items-center plb-4'>
       <div className='md:is-8/12'>
         <div className='flex items-baseline gap-1 mbe-2'>
-          <Typography variant='h5'>Selamat Datang,</Typography>
-          <Typography variant='h4'>[Nama Mahasiswa] 👋🏻</Typography>
+          <Typography variant='h5' className='mt-0 mb-0'>Selamat Datang,</Typography>
+          <Typography variant='h4' className='mt-0 mb-0'>Sitti Badriah 👋🏻</Typography>
         </div>
-        <div className='mbe-4'>
-          <Typography>Progress Anda luar biasa! Tetap rajin kuliah dan belajar agar lulus tepat waktu!</Typography>
+        <div className='mbe-2'>
+          <Typography className='mt-0 mb-0'>Progress Anda luar biasa! Tetap rajin kuliah dan belajar agar lulus tepat waktu!</Typography>
         </div>
         <div className='flex flex-wrap justify-between gap-6 max-md:flex-col'>
           {data.map((item, i) => (
@@ -116,8 +109,8 @@ const WelcomeCard = () => {
                 {item.icon}
               </CustomAvatar>
               <div>
-                <Typography className='font-medium'>{item.title}</Typography>
-                <Typography variant='h4' color={`${item.color}.main`}>
+                <Typography className='mt-0 mb-0 font-medium'>{item.title}</Typography>
+                <Typography variant='h4' color={`${item.color}.main`} className='mt-0 mb-0'>
                   {item.value}
                 </Typography>
               </div>
@@ -125,42 +118,17 @@ const WelcomeCard = () => {
           ))}
         </div>
       </div>
-      <Divider orientation={belowMdScreen ? 'horizontal' : 'vertical'} flexItem />
-      <div className='flex justify-between md:is-4/12'>
-        <div className='flex flex-col gap-4 p-4 border rounded-md shadow-sm'>
-          <div>
-            <Typography variant='h5' className='mbe-2'>
-              Jadwal Perkuliahan Akan Datang
-            </Typography>
-            <Typography variant='body2'>
-              Mata Kuliah : <span className='font-medium'>Algoritma</span>
-            </Typography>
-          </div>
-          <div className='flex flex-wrap justify-between gap-4'>
-            <div className='flex items-center gap-3'>
-              <CustomAvatar variant='rounded' skin='light' color='primary'>
-                <i className={classnames('text-[28px]', 'tabler-calendar')} />
-              </CustomAvatar>
-              <div>
-                <Typography color='text.primary' className='font-medium'>
-                  20 Sep 23
-                </Typography>
-                <Typography variant='body2'>Tanggal</Typography>
-              </div>
+      <Divider orientation={belowMdScreen ? 'horizontal' : 'vertical'} flexItem className='ml-7' />
+      <div className='flex flex-col justify-between md:is-4/12 pbs-4'>
+        <div className='flex flex-col gap-4'>
+          <div className='flex flex-col items-center justify-center gap-2'>
+            <div className='flex flex-col items-center gap-2'>
+              <CustomAvatar
+                alt='user-profile' src='https://simak.unismuh.ac.id/upload/dosen/0931087901_.jpg' variant='rounded' size={140} />
+              <Typography variant='h5' className='mt-0 mb-0'>MUHYIDDIN A M HAYAT</Typography>
             </div>
-            <div className='flex items-center gap-3'>
-              <CustomAvatar variant='rounded' skin='light' color='primary'>
-                <i className={classnames('text-[28px]', 'tabler-clock')} />
-              </CustomAvatar>
-              <div>
-                <Typography color='text.primary' className='font-medium'>
-                  120 Menit
-                </Typography>
-                <Typography variant='body2'>Durasi</Typography>
-              </div>
-            </div>
+            <Chip label='Penesehat Akademik' color='success' size='small' variant='tonal' />
           </div>
-          <Button variant='contained'>Liat Jadwal</Button>
         </div>
       </div>
     </div>
