@@ -24,7 +24,7 @@ import { getInvoiceData } from '@/app/server/actions'
 
   return res.json()
 } */
-const OverViewTab = async () => {
+const Pembingbing = async () => {
   // Vars
   const invoiceData = await getInvoiceData()
 
@@ -43,4 +43,4 @@ const OverViewTab = async () => {
   )
 }
 
-export default OverViewTab
+export default Pembingbing

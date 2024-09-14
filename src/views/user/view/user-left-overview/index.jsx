@@ -11,9 +11,9 @@ const UserLeftOverview = () => {
       <Grid item xs={12}>
         <UserDetails />
       </Grid>
-      <Grid item xs={12}>
+      {/* <Grid item xs={12}>
         <UserPlan />
-      </Grid>
+      </Grid> */}
     </Grid>
   )
 }

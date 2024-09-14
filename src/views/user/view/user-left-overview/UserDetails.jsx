@@ -42,8 +42,9 @@ const UserDetails = () => {
           <div className='flex flex-col gap-6'>
             <div className='flex flex-col items-center justify-center gap-4'>
               <div className='flex flex-col items-center gap-4'>
-                <CustomAvatar alt='user-profile' src='/images/avatars/1.png' variant='rounded' size={120} />
-                <Typography variant='h5'>{`${userData.firstName} ${userData.lastName}`}</Typography>
+                <CustomAvatar alt='user-profile' src='https://simak.unismuh.ac.id/upload/dosen/0931087901_.jpg' variant='rounded' size={120} />
+                {/* <Typography variant='h5'>{`${userData.firstName} ${userData.lastName}`}</Typography> */}
+                <Typography variant='h5'>MUHYIDDIN A M HAYAT</Typography>
               </div>
               <Chip label='Author' color='secondary' size='small' variant='tonal' />
             </div>
@@ -68,7 +69,7 @@ const UserDetails = () => {
               </div>
             </div>
           </div>
-          <div>
+          {/* <div>
             <Typography variant='h5'>Details</Typography>
             <Divider className='mlb-4' />
             <div className='flex flex-col gap-2'>
@@ -121,7 +122,7 @@ const UserDetails = () => {
                 <Typography color='text.primary'>{userData.country}</Typography>
               </div>
             </div>
-          </div>
+          </div> */}
           <div className='flex justify-center gap-4'>
             <OpenDialogOnElementClick
               element={Button}

@@ -26,12 +26,12 @@ const UserRight = ({ tabContentList }) => {
         <Grid container spacing={6}>
           <Grid item xs={12}>
             <CustomTabList onChange={handleChange} variant='scrollable' pill='true'>
-              <Tab icon={<i className='tabler-users' />} value='overview' label='Overview' iconPosition='start' />
-              <Tab icon={<i className='tabler-lock' />} value='security' label='Security' iconPosition='start' />
+              <Tab icon={<i className='tabler-users' />} value='overview' label='PA' iconPosition='start' />
+              <Tab icon={<i className='tabler-lock' />} value='pembingbing' label='Pembingbing' iconPosition='start' />
               <Tab
                 icon={<i className='tabler-bookmark' />}
-                value='billing-plans'
-                label='Billing & Plans'
+                value='kkp'
+                label='KKP & KKP Plus'
                 iconPosition='start'
               />
               <Tab

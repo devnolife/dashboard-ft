@@ -7,6 +7,7 @@ export const db = {
       logo: 'tabler-file',
       color: 'success',
       courseTitle: 'Kartu Kontrol PA',
+      status: "sucsess"
     },
     {
       id: 2,
@@ -15,6 +16,7 @@ export const db = {
       logo: 'tabler-augmented-reality',
       color: 'warning',
       courseTitle: 'LAB',
+      status: "sucsess"
     },
     {
       id: 3,
@@ -23,6 +25,7 @@ export const db = {
       logo: 'tabler-brand-react-native',
       color: 'info',
       courseTitle: 'Kelengkapan KKP',
+      status: "sucsess"
     },
     {
       id: 4,
@@ -31,6 +34,7 @@ export const db = {
       logo: 'tabler-pencil',
       color: 'success',
       courseTitle: 'Proposal',
+      status: "sucsess"
     },
     {
       id: 5,
@@ -39,6 +43,7 @@ export const db = {
       logo: 'tabler-star',
       color: 'primary',
       courseTitle: 'Ujian Hasil',
+      status: "sucsess"
     },
     {
       id: 6,
@@ -47,6 +52,7 @@ export const db = {
       logo: 'tabler-brand-react-native',
       color: 'info',
       courseTitle: 'Ujian Tutup',
+      status: "sucsess"
     },
   ],
   courses: [

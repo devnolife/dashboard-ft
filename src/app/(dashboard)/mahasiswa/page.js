@@ -1,13 +1,16 @@
 
 import WelcomeCard from "./WelcomeCard"
-import ProgressAkademik from "./ProgressAkademik"
+import ProgressAkademik from './ProgressAkademik'
+
+import { getAcademyData } from '@/app/server/actions'
 
 export default async function Page() {
+  const data = await getAcademyData()
 
   return (
     <>
       <WelcomeCard />
-      <ProgressAkademik />
+      <ProgressAkademik courseData={data?.mhsList} />
     </>
   )
 }

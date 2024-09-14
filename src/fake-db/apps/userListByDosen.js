@@ -1,0 +1,143 @@
+export const db = [
+    {
+      id: 1,
+      fullName: 'ANDI RESQI PUTRIYANI NUR',
+      username: '105841101321',
+      kelas: 'Kelas A',
+      contact: '081234567890',
+      email: '105841101321@student.unismuh.ac.id',
+      status: 'active',
+      avatar: 'https://simak.unismuh.ac.id/upload/mahasiswa/105841101321.jpg?1726275657',
+      avatarColor: 'primary',
+      semester: 'Semester 5'
+    },
+    {
+      id: 2,
+      fullName: 'MUH NUR IHSAN DAHLAN',
+      username: '105821100221',
+      kelas: 'Kelas A',
+      contact: '081234567890',
+      email: '105821100221@student.unismuh.ac.id',
+      status: 'active',
+      avatar: 'https://simak.unismuh.ac.id/upload/mahasiswa/105821100221.jpg?1726275657',
+      avatarColor: 'secondary',
+      semester: 'Semester 5'
+    },
+    {
+      id: 3,
+      fullName: 'Khoirul umam',
+      username: '105841100221',
+      kelas: 'Kelas A',
+      contact: '081234567890',
+      email: '105841100221@student.unismuh.ac.id',
+      status: 'active',
+      avatar: 'https://simak.unismuh.ac.id/upload/mahasiswa/105841100221.jpg?1726275657',
+      avatarColor: 'secondary',
+      semester: 'Semester 5'
+    },
+    {
+      id: 4,
+      fullName: 'Alwi',
+      username: '105841102221',
+      kelas: 'Kelas D',
+      contact: '081234567890',
+      email: '105841102221@student.unismuh.ac.id',
+      status: 'active',
+      avatar: 'https://simak.unismuh.ac.id/upload/mahasiswa/105841102221.jpg?1726275657',
+      avatarColor: 'secondary',
+      semester: 'Semester 3'
+    },
+    {
+        id: 5,
+        fullName: 'MUHAMMAD RAFLI',
+        username: '105811110121',
+        kelas: 'Kelas X',
+        contact: '081234567890',
+        email: '105811110121@student.unismuh.ac.id',
+        status: 'active',
+        avatar: 'https://simak.unismuh.ac.id/upload/mahasiswa/105811110121.jpg?1726275657',
+        avatarColor: 'primary',
+        semester: 'Semester 5'
+    },
+    {
+        id: 6,
+        fullName: 'Sariana',
+        username: '105811100221',
+        kelas: 'Kelas X',
+        contact: '081234567890',
+        email: '105811100221@student.unismuh.ac.id',
+        status: 'active',
+        avatar: 'https://simak.unismuh.ac.id/upload/mahasiswa/105811100221.jpg?1726275657',
+        avatarColor: 'primary',
+        semester: 'Semester 5'
+    },
+    {
+        id: 7,
+        fullName: 'Muhammad Dasril Asdar',
+        username: '105841100321',
+        kelas: 'Kelas X',
+        contact: '081234567890',
+        email: '105841100321@student.unismuh.ac.id',
+        status: 'active',
+        avatar: 'https://simak.unismuh.ac.id/upload/mahasiswa/105841100321.jpg?1726275657',
+        avatarColor: 'primary',
+        semester: 'Semester 5'
+    },
+    {
+        id: 8,
+        fullName: 'Andika Saputra',
+        username: '105841100521',
+        kelas: 'Kelas X',
+        contact: '081234567890',
+        email: '105841100521@student.unismuh.ac.id',
+        status: 'active',
+        avatar: 'https://simak.unismuh.ac.id/upload/mahasiswa/105841100521.jpg?1726275657',
+        avatarColor: 'primary',
+        semester: 'Semester 5'
+    },
+    {
+        id: 9,
+        fullName: 'Muh. Iqbal Asy\'ari. S',
+        username: '105821100621',
+        kelas: 'Kelas X',
+        contact: '081234567890',
+        email: '105821100621@student.unismuh.ac.id',
+        status: 'active',
+        avatar: 'https://simak.unismuh.ac.id/upload/mahasiswa/105821100621.jpg?1726275657',
+      avatarColor: 'primary',
+      semester: 'Semester 5'
+    },
+    {
+      id: 10,
+      fullName: 'MUH. HAJIR',
+      username: '105821103321',
+      kelas: 'Kelas X',
+      contact: '081234567890',
+      email: '105821103321@student.unismuh.ac.id',
+      status: 'active',
+      avatarColor: 'primary',
+      semester: 'Semester 5'
+    },
+    {
+      id: 11,
+      fullName: 'Muhammad Ardian',
+      username: '105821100521',
+      kelas: 'Kelas X',
+      contact: '081234567890',
+      email: '105821100521@student.unismuh.ac.id',
+      status: 'active',
+      avatarColor: 'primary',
+      semester: 'Semester 5'
+    },
+    {
+      id: 12,
+      fullName: 'Ahmad Nur Rahman',
+      username: '105841101721',
+      kelas: 'Kelas X',
+      contact: '081234567890',
+      email: '105841101721@student.unismuh.ac.id',
+      status: 'active',
+      avatarColor: 'primary',
+      semester: 'Semester 5'
+    }
+]
