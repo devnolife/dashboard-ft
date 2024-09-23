@@ -32,17 +32,12 @@ const chipColor = {
 }
 
 const Courses = props => {
-  // Props
   const { courseData, searchValue } = props
 
-  // States
   const [course, setCourse] = useState('All')
   const [hideCompleted, setHideCompleted] = useState(true)
   const [data, setData] = useState([])
   const [activePage, setActivePage] = useState(0)
-
-  // Hooks
-  const { lang: locale } = useParams()
 
   useEffect(() => {
     let newData =
@@ -132,12 +127,12 @@ const Courses = props => {
                     <div className='flex flex-col gap-1'>
                       {item.completedTasks === item.totalTasks ? (
                         <div className='flex items-center gap-1'>
-                          <i className='tabler-check text-xl text-success' />
+                          <i className='text-xl tabler-check text-success' />
                           <Typography color='success.main'>Completed</Typography>
                         </div>
                       ) : (
                         <div className='flex items-center gap-1'>
-                          <i className='tabler-clock text-xl' />
+                          <i className='text-xl tabler-clock' />
                           <Typography>{`${item.time}`}</Typography>
                         </div>
                       )}
@@ -166,7 +161,7 @@ const Courses = props => {
                           startIcon={<i className='tabler-rotate-clockwise-2' />}
                           component={Link}
                           href={'/apps/academy/lab-details'}
-                          className='is-auto flex-auto'
+                          className='flex-auto is-auto'
                         >
                           Start Over
                         </Button>
@@ -178,7 +173,7 @@ const Courses = props => {
                           }
                           component={Link}
                           href={'/apps/academy/lab-details'}
-                          className='is-auto flex-auto'
+                          className='flex-auto is-auto'
                         >
                           Continue
                         </Button>

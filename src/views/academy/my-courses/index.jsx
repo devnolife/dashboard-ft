@@ -9,8 +9,7 @@ import Grid from '@mui/material/Grid'
 // Component Imports
 import MyCourseHeader from './MyCourseHeader'
 import Courses from './Courses'
-import ColoredCards from './ColoredCards'
-import FreeCourses from './FreeCourses'
+
 
 const AcademyMyCourse = ({ courseData, mode }) => {
   // States
@@ -24,12 +23,7 @@ const AcademyMyCourse = ({ courseData, mode }) => {
       <Grid item xs={12}>
         <Courses courseData={courseData} searchValue={searchValue} />
       </Grid>
-      <Grid item xs={12}>
-        <ColoredCards />
-      </Grid>
-      <Grid item xs={12}>
-        <FreeCourses />
-      </Grid>
+
     </Grid>
   )
 }

@@ -1,3 +1,4 @@
+/* eslint-disable import/no-unresolved */
 'use client'
 
 // MUI Imports
@@ -56,7 +57,7 @@ const ReferEarn = ({ open, setOpen }) => {
       <DialogCloseButton onClick={() => setOpen(false)} disableRipple>
         <i className='tabler-x' />
       </DialogCloseButton>
-      <DialogTitle variant='h4' className='flex gap-2 flex-col text-center sm:pbs-16 sm:pbe-12 sm:pli-16'>
+      <DialogTitle variant='h4' className='flex flex-col gap-2 text-center sm:pbs-16 sm:pbe-12 sm:pli-16'>
         Refer & Earn
         <Typography component='span' className='flex flex-col text-center'>
           {`Invite your friend to ${themeConfig.templateName}, if they sign up, you and your friend will get 30 days free
@@ -67,7 +68,7 @@ const ReferEarn = ({ open, setOpen }) => {
         <Grid container spacing={6}>
           {options?.map((option, index) => (
             <Grid item xs={12} md={4} key={index}>
-              <div className='flex items-center flex-col gap-4'>
+              <div className='flex flex-col items-center gap-4'>
                 <CustomAvatar
                   variant='rounded'
                   skin='light'
@@ -91,7 +92,7 @@ const ReferEarn = ({ open, setOpen }) => {
         <Divider className='mbs-6' />
         <div className='flex flex-col gap-6'>
           <Typography variant='h5'>Invite your friends</Typography>
-          <div className='flex items-end is-full flex-wrap sm:flex-nowrap gap-4'>
+          <div className='flex flex-wrap items-end gap-4 is-full sm:flex-nowrap'>
             <CustomTextField
               fullWidth
               size='small'
@@ -106,7 +107,7 @@ const ReferEarn = ({ open, setOpen }) => {
         </div>
         <div className='flex flex-col gap-6'>
           <Typography variant='h5'>Share the referral link</Typography>
-          <div className='flex items-end justify-center sm:justify-initial flex-wrap sm:flex-nowrap gap-4'>
+          <div className='flex flex-wrap items-end justify-center gap-4 sm:justify-initial sm:flex-nowrap'>
             <CustomTextField
               fullWidth
               size='small'
@@ -124,13 +125,13 @@ const ReferEarn = ({ open, setOpen }) => {
               }}
             />
             <div className='flex items-center gap-1'>
-              <CustomIconButton className='rounded text-white bg-facebook'>
+              <CustomIconButton className='text-white rounded bg-facebook'>
                 <i className='tabler-brand-facebook' />
               </CustomIconButton>
-              <CustomIconButton className='rounded text-white bg-twitter'>
+              <CustomIconButton className='text-white rounded bg-twitter'>
                 <i className='tabler-brand-twitter' />
               </CustomIconButton>
-              <CustomIconButton className='rounded text-white bg-linkedin'>
+              <CustomIconButton className='text-white rounded bg-linkedin'>
                 <i className='tabler-brand-linkedin' />
               </CustomIconButton>
             </div>
