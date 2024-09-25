@@ -11,7 +11,7 @@ import SearchHeader from './search'
 import ListLab from './listlab'
 
 
-const AcademyMyCourse = ({ courseData, mode }) => {
+const listLabPage = ({ courseData, mode }) => {
   // States
   const [searchValue, setSearchValue] = useState('')
 
@@ -23,9 +23,8 @@ const AcademyMyCourse = ({ courseData, mode }) => {
       <Grid item xs={12}>
         <ListLab courseData={courseData} searchValue={searchValue} />
       </Grid>
-
     </Grid>
   )
 }
 
-export default AcademyMyCourse
+export default listLabPage
