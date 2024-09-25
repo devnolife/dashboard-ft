@@ -1,3 +1,5 @@
+'use client'
+
 import { useState, useEffect } from 'react'
 
 // Next Imports
@@ -81,11 +83,11 @@ const ListLab = props => {
                 labelId='course-select'
               >
                 <MenuItem value='All'>Semua Lab</MenuItem>
-                <MenuItem value='Web'>Web</MenuItem>
-                <MenuItem value='Art'>Art</MenuItem>
-                <MenuItem value='UI/UX'>UI/UX</MenuItem>
-                <MenuItem value='Psychology'>Psychology</MenuItem>
-                <MenuItem value='Design'>Design</MenuItem>
+                <MenuItem value='pemrograman'>Pemrograman</MenuItem>
+                <MenuItem value='algoritma'>Algoritma</MenuItem>
+                <MenuItem value='jarkom'>Jaringan Komputer</MenuItem>
+                <MenuItem value='database'>Databse</MenuItem>
+                <MenuItem value='cloud'>Cloud</MenuItem>
               </Select>
             </FormControl>
             <FormControlLabel
@@ -100,13 +102,13 @@ const ListLab = props => {
               <Grid item xs={12} sm={6} md={4} key={index}>
                 <div className='border rounded bs-full'>
                   <div className='pli-2 pbs-2'>
-                    <Link href={'/apps/academy/lab-details'} className='flex'>
-                      <img src={item.tutorImg} alt={item.courseTitle} className='is-full' />
+                    <Link href={''} className='flex'>
+                      <img src={item.tutorImg} alt={item.courseTitle} className='is-full w-[300px] h-[300px]' />
                     </Link>
                   </div>
                   <div className='flex flex-col gap-4 p-5'>
                     <div className='flex items-center justify-between'>
-                      <Chip label={item.tags} variant='tonal' size='small' color={chipColor[item.tags].color} />
+                      <Chip label={item.tags} variant='tonal' size='small' color={chipColor[item.tags]} />
                       <div className='flex items-start'>
                         <Typography className='font-medium mie-1'>{item.rating}</Typography>
                         <i className='tabler-star-filled text-warning mie-2' />
@@ -122,7 +124,9 @@ const ListLab = props => {
                       >
                         {item.courseTitle}
                       </Typography>
-                      <Typography>{item.desc}</Typography>
+                      <Typography>
+                        {item.desc.length > 50 ? `${item.desc.slice(0, 100)}...` : item.desc}
+                        </Typography>
                     </div>
                     <div className='flex flex-col gap-1'>
                       {item.completedTasks === item.totalTasks ? (

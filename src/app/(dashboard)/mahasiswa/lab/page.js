@@ -11,7 +11,7 @@ import SearchHeader from './search'
 import ListLab from './listlab'
 
 
-const listLabPage = ({ courseData, mode }) => {
+const AcademyMyCourse = ({ courseData, mode }) => {
   // States
   const [searchValue, setSearchValue] = useState('')
 
@@ -27,4 +27,4 @@ const listLabPage = ({ courseData, mode }) => {
   )
 }
 
-export default listLabPage
+export default AcademyMyCourse
