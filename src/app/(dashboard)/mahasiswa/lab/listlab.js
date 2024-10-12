@@ -4,7 +4,6 @@ import { useState, useEffect } from 'react'
 
 // Next Imports
 import Link from 'next/link'
-import { useParams } from 'next/navigation'
 
 // MUI Imports
 import Grid from '@mui/material/Grid'
@@ -16,26 +15,24 @@ import FormControl from '@mui/material/FormControl'
 import FormControlLabel from '@mui/material/FormControlLabel'
 import LinearProgress from '@mui/material/LinearProgress'
 import MenuItem from '@mui/material/MenuItem'
-import Pagination from '@mui/material/Pagination'
 import Select from '@mui/material/Select'
 import Switch from '@mui/material/Switch'
 import Typography from '@mui/material/Typography'
 
 // Component Imports
 import DirectionalIcon from '@components/DirectionalIcon'
+import { Pagination } from '@mui/material'
 
-
+// Define chip colors based on semester
 const chipColor = {
-  Web: { color: 'primary' },
-  Art: { color: 'success' },
-  'UI/UX': { color: 'error' },
-  Psychology: { color: 'warning' },
-  Design: { color: 'info' }
+  'Semester 1': { color: 'primary' },
+  'Semester 2': { color: 'success' },
+  'Semester 3': { color: 'error' },
+  'Semester 4': { color: 'warning' },
+  'Semester 5': { color: 'info' }
 }
 
-const ListLab = props => {
-  const { courseData, searchValue } = props
-
+const ListLab = ({ courseData, searchValue }) => {
   const [course, setCourse] = useState('All')
   const [hideCompleted, setHideCompleted] = useState(true)
   const [data, setData] = useState([])
@@ -46,11 +43,11 @@ const ListLab = props => {
       courseData?.filter(courseItem => {
         if (course === 'All') return !hideCompleted || courseItem.completedTasks !== courseItem.totalTasks
 
-        return courseItem.tags === course && (!hideCompleted || courseItem.completedTasks !== courseItem.totalTasks)
+        return courseItem.semester === course && (!hideCompleted || courseItem.completedTasks !== courseItem.totalTasks)
       }) ?? []
 
     if (searchValue) {
-      newData = newData.filter(category => category.courseTitle.toLowerCase().includes(searchValue.toLowerCase()))
+      newData = newData.filter(category => category.namaLab.toLowerCase().includes(searchValue.toLowerCase()))
     }
 
     if (activePage > Math.ceil(newData.length / 6)) setActivePage(0)
@@ -67,8 +64,8 @@ const ListLab = props => {
       <CardContent className='flex flex-col gap-6'>
         <div className='flex flex-wrap items-center justify-between gap-4'>
           <div>
-            <Typography variant='h5'>LAB</Typography>
-            <Typography>Total 6 lab, yang telah anda programkan</Typography>
+            <Typography variant='h5'>Pratikum Prodi Informatika</Typography>
+            <Typography>12 Jumlah Pratikum yang ingin di laksanakan</Typography>
           </div>
           <div className='flex flex-wrap items-center gap-y-4 gap-x-6'>
             <FormControl fullWidth size='small' className='is-[250px] flex-auto'>
@@ -82,12 +79,12 @@ const ListLab = props => {
                 }}
                 labelId='course-select'
               >
-                <MenuItem value='All'>Semua Lab</MenuItem>
-                <MenuItem value='pemrograman'>Pemrograman</MenuItem>
-                <MenuItem value='algoritma'>Algoritma</MenuItem>
-                <MenuItem value='jarkom'>Jaringan Komputer</MenuItem>
-                <MenuItem value='database'>Databse</MenuItem>
-                <MenuItem value='cloud'>Cloud</MenuItem>
+                <MenuItem value='All'>Semua Semester</MenuItem>
+                <MenuItem value='Semester 1'>Semester 1</MenuItem>
+                <MenuItem value='Semester 2'>Semester 2</MenuItem>
+                <MenuItem value='Semester 3'>Semester 3</MenuItem>
+                <MenuItem value='Semester 4'>Semester 4</MenuItem>
+                <MenuItem value='Semester 5'>Semester 5</MenuItem>
               </Select>
             </FormControl>
             <FormControlLabel
@@ -100,91 +97,68 @@ const ListLab = props => {
           <Grid container spacing={6}>
             {data.slice(activePage * 6, activePage * 6 + 6).map((item, index) => (
               <Grid item xs={12} sm={6} md={4} key={index}>
-                <div className='border rounded bs-full'>
-                  <div className='pli-2 pbs-2'>
-                    <Link href={''} className='flex'>
-                      <img src={item.tutorImg} alt={item.courseTitle} className='is-full w-[300px] h-[300px]' />
-                    </Link>
-                  </div>
-                  <div className='flex flex-col gap-4 p-5'>
-                    <div className='flex items-center justify-between'>
-                      <Chip label={item.tags} variant='tonal' size='small' color={chipColor[item.tags]} />
-                      <div className='flex items-start'>
-                        <Typography className='font-medium mie-1'>{item.rating}</Typography>
-                        <i className='tabler-star-filled text-warning mie-2' />
-                        <Typography>{`(${item.ratingCount})`}</Typography>
+                <Card className='flex flex-col justify-between h-full'>
+                  <div>
+                    <img src={item.gambarLab} alt={item.namaLab} className='w-full h-[200px] object-cover' />
+                    <CardContent className='flex flex-col gap-4 p-5'>
+                      <div className='flex items-center justify-between'>
+                        <Chip label={item.semester} variant='tonal' size='small' color={chipColor[item.semester].color} />
+                        <Typography>{`(${item.pengurusLab})`}</Typography>
                       </div>
-                    </div>
-                    <div className='flex flex-col gap-1'>
                       <Typography
                         variant='h5'
                         component={Link}
                         href={'/apps/academy/lab-details'}
                         className='hover:text-primary'
                       >
-                        {item.courseTitle}
+                        {item.namaLab}
                       </Typography>
-                      <Typography>
-                        {item.desc.length > 50 ? `${item.desc.slice(0, 100)}...` : item.desc}
-                        </Typography>
-                    </div>
-                    <div className='flex flex-col gap-1'>
-                      {item.completedTasks === item.totalTasks ? (
-                        <div className='flex items-center gap-1'>
-                          <i className='text-xl tabler-check text-success' />
-                          <Typography color='success.main'>Completed</Typography>
-                        </div>
-                      ) : (
-                        <div className='flex items-center gap-1'>
-                          <i className='text-xl tabler-clock' />
-                          <Typography>{`${item.time}`}</Typography>
-                        </div>
-                      )}
-                      <LinearProgress
-                        color='primary'
-                        value={Math.floor((item.completedTasks / item.totalTasks) * 100)}
-                        variant='determinate'
-                        className='is-full bs-2'
-                      />
-                    </div>
+                      <Typography
+                        className='overflow-hidden text-ellipsis'
+                        title={item.desc}
+                      >
+                        {item.desc}
+                      </Typography>
+                      <div className='flex items-center gap-1'>
+                        <i className='text-xl tabler-clock' />
+                        <Typography>{`${item.time} Menit`}</Typography>
+                      </div>
+                    </CardContent>
+                  </div>
+                  <div className='p-5 pt-0'>
+                    <LinearProgress
+                      color='primary'
+                      value={Math.floor((item.completedTasks / item.totalTasks) * 100)}
+                      variant='determinate'
+                      className='mb-4 is-full bs-2'
+                    />
                     {item.completedTasks === item.totalTasks ? (
                       <Button
                         variant='tonal'
+                        color='error'
                         startIcon={<i className='tabler-rotate-clockwise-2' />}
                         component={Link}
                         href={'/apps/academy/lab-details'}
+                        className='w-full'
                       >
-                        Start Over
+                        Ulangi
                       </Button>
                     ) : (
-                      <div className='flex flex-wrap gap-4'>
-                        <Button
-                          fullWidth
-                          variant='tonal'
-                          color='secondary'
-                          startIcon={<i className='tabler-rotate-clockwise-2' />}
-                          component={Link}
-                          href={'/apps/academy/lab-details'}
-                          className='flex-auto is-auto'
-                        >
-                          Start Over
-                        </Button>
-                        <Button
-                          fullWidth
-                          variant='tonal'
-                          endIcon={
-                            <DirectionalIcon ltrIconClass='tabler-chevron-right' rtlIconClass='tabler-chevron-left' />
-                          }
-                          component={Link}
-                          href={'/apps/academy/lab-details'}
-                          className='flex-auto is-auto'
-                        >
-                          Continue
-                        </Button>
-                      </div>
+                      <Button
+                        fullWidth
+                        variant='tonal'
+                        endIcon={
+                          <DirectionalIcon ltrIconClass='tabler-chevron-right' rtlIconClass='tabler-chevron-left' />
+                        }
+                        component={Link}
+                        href={'/apps/academy/lab-details'}
+                        className='w-full'
+                      >
+                        Lanjutkan
+                      </Button>
                     )}
                   </div>
-                </div>
+                </Card>
               </Grid>
             ))}
           </Grid>
@@ -204,7 +178,7 @@ const ListLab = props => {
           />
         </div>
       </CardContent>
-    </Card>
+    </Card >
   )
 }
 

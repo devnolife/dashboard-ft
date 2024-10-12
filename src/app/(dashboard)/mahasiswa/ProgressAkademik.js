@@ -1,13 +1,8 @@
-import { Card, Grid } from '@mui/material'
-
-import CourseTable from '@views/academy/dashboard/CourseTable'
-import { getAcademyData } from '@/app/server/actions'
+import { Grid } from '@mui/material'
 import CardDosen from './DosenCard'
 import TableProgress from './TableProgress'
 
 const ProgressAkademik = async () => {
-  const data = await getAcademyData()
-
   return (
     <Grid container spacing={6}>
       < Grid item xs={12} md={8} >

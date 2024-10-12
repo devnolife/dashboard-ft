@@ -93,24 +93,28 @@ const WelcomeCard = () => {
   const belowMdScreen = useMediaQuery(theme.breakpoints.down('md'))
 
   return (
-    <div className='flex gap-6 max-md:flex-col md:items-center plb-4'>
-      <div className='md:is-8/12'>
-        <div className='flex items-baseline gap-1 mbe-2'>
-          <Typography variant='h5' className='mt-0 mb-0'>Selamat Datang,</Typography>
-          <Typography variant='h4' className='mt-0 mb-0'>Sitti Badriah 👋🏻</Typography>
+    <div className='flex flex-col gap-4 p-4 md:flex-row md:items-center'>
+      <div className='md:w-8/12'>
+        <div className='flex flex-col items-baseline gap-1 mb-2 md:flex-row'>
+          <Typography variant={belowMdScreen ? 'h6' : 'h5'} className='mb-0'>
+            Selamat Datang,
+          </Typography>
+          <Typography variant={belowMdScreen ? 'h5' : 'h4'} className='mb-0'>
+            Sitti Badriah 👋🏻
+          </Typography>
         </div>
-        <div className='mbe-2'>
-          <Typography className='mt-0 mb-0'>Progress Anda luar biasa! Tetap rajin kuliah dan belajar agar lulus tepat waktu!</Typography>
-        </div>
-        <div className='flex flex-wrap justify-between gap-6 max-md:flex-col'>
+        <Typography className='mb-2'>
+          Progress Anda luar biasa! Tetap rajin kuliah dan belajar agar lulus tepat waktu!
+        </Typography>
+        <div className='flex flex-wrap justify-between gap-4'>
           {data.map((item, i) => (
-            <div key={i} className='flex gap-4'>
-              <CustomAvatar variant='rounded' skin='light' size={54} color={item.color}>
+            <div key={i} className='flex items-center gap-4'>
+              <CustomAvatar variant='rounded' skin='light' size={belowMdScreen ? 48 : 54} color={item.color}>
                 {item.icon}
               </CustomAvatar>
               <div>
-                <Typography className='mt-0 mb-0 font-medium'>{item.title}</Typography>
-                <Typography variant='h4' color={`${item.color}.main`} className='mt-0 mb-0'>
+                <Typography className='font-medium'>{item.title}</Typography>
+                <Typography variant='h6' color={`${item.color}.main`} className='mt-0 mb-0'>
                   {item.value}
                 </Typography>
               </div>
@@ -118,17 +122,19 @@ const WelcomeCard = () => {
           ))}
         </div>
       </div>
-      <Divider orientation={belowMdScreen ? 'horizontal' : 'vertical'} flexItem className='ml-7' />
-      <div className='flex flex-col justify-between md:is-4/12 pbs-4'>
-        <div className='flex flex-col gap-4'>
-          <div className='flex flex-col items-center justify-center gap-2'>
-            <div className='flex flex-col items-center gap-2'>
-              <CustomAvatar
-                alt='user-profile' src='https://simak.unismuh.ac.id/upload/dosen/0931087901_.jpg' variant='rounded' size={140} />
-              <Typography variant='h5' className='mt-0 mb-0'>MUHYIDDIN A M HAYAT</Typography>
-            </div>
-            <Chip label='Penesehat Akademik' color='success' size='small' variant='tonal' />
-          </div>
+      <Divider orientation={belowMdScreen ? 'horizontal' : 'vertical'} flexItem className='mt-4 md:mt-0 md:ml-7' />
+      <div className='flex flex-col justify-between py-4 md:w-4/12'>
+        <div className='flex flex-col items-center gap-2'>
+          <CustomAvatar
+            alt='user-profile'
+            src='https://simak.unismuh.ac.id/upload/dosen/0931087901_.jpg'
+            variant='rounded'
+            size={belowMdScreen ? 120 : 140}
+          />
+          <Typography variant={belowMdScreen ? 'h6' : 'h5'} className='mt-0 mb-0'>
+            MUHYIDDIN A M HAYAT
+          </Typography>
+          <Chip label='Penasehat Akademik' color='success' size='small' variant='tonal' />
         </div>
       </div>
     </div>

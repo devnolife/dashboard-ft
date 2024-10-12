@@ -222,7 +222,9 @@ const TableProgress = () => {
             <tbody>
               <tr>
                 <td colSpan={table.getVisibleFlatColumns().length} className='text-center'>
-                  No data available
+                  <Typography variant='body2' color='textSecondary'>
+                    No data available
+                  </Typography>
                 </td>
               </tr>
             </tbody>

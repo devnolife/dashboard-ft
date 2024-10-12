@@ -16,9 +16,9 @@ const HorizontalWithSubtitle = props => {
   return (
     <Card>
       <CardContent className='flex justify-between gap-1'>
-        <div className='flex flex-col gap-1 flex-grow'>
+        <div className='flex flex-col flex-grow gap-1'>
           <Typography color='text.primary'>{title}</Typography>
-          <div className='flex items-center gap-2 flex-wrap'>
+          <div className='flex flex-wrap items-center gap-2'>
             <Typography variant='h4'>{stats}</Typography>
             <Typography color={trend === 'negative' ? 'error.main' : 'success.main'}>
               {`(${trend === 'negative' ? '-' : '+'}${trendNumber})`}

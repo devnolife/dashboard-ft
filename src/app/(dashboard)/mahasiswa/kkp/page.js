@@ -1,13 +1,19 @@
 import React from "react"
 
 import StepWizard from "./StepWizard"
+import Dashboard from "./dashboard"
 
 const Page = () => {
+  const statusMahasiswa = "mengajukan"
   return (
     <>
-      <h1>
-        <StepWizard />
-      </h1>
+      {
+        statusMahasiswa === "sedangKKP" ? (
+          <Dashboard />
+        ) : (
+          <StepWizard />
+        )
+      }
     </>
   )
 }

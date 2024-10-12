@@ -18,6 +18,7 @@ import IconButton from '@mui/material/IconButton'
 import { styled } from '@mui/material/styles'
 import TablePagination from '@mui/material/TablePagination'
 import MenuItem from '@mui/material/MenuItem'
+import ViewSurat from './ViewSurat'
 
 // Third-party Imports
 import classnames from 'classnames'
@@ -78,19 +79,16 @@ const DebouncedInput = ({ value: initialValue, onChange, debounce = 500, ...prop
   return <CustomTextField {...props} value={value} onChange={e => setValue(e.target.value)} />
 }
 
-// Vars
-const userRoleObj = {
-  admin: { icon: 'tabler-crown', color: 'error' },
-  author: { icon: 'tabler-device-desktop', color: 'warning' },
-  editor: { icon: 'tabler-edit', color: 'info' },
-  maintainer: { icon: 'tabler-chart-pie', color: 'success' },
-  subscriber: { icon: 'tabler-user', color: 'primary' }
-}
-
 const userStatusObj = {
   active: 'success',
   pending: 'warning',
   inactive: 'secondary'
+}
+
+const statusColor = {
+  Diproses: 'warning',
+  'Menunggu persetujuan': 'info',
+  Disetujui: 'success'
 }
 const db = [
   {
@@ -142,7 +140,7 @@ const db = [
     negara: 'Indonesia',
     kontak: '(923) 690-6806',
     email: 'cyrill.risby@wordpress.com',
-    statusSurat: 'Diproses',
+    statusSurat: 'Pengajuan',
     avatar: '/images/avatars/3.png',
     metodePengambilan: 'Dikirim via email'
   },
@@ -226,7 +224,14 @@ const SuratListTable = () => {
   const [filteredData, setFilteredData] = useState(data)
   const [globalFilter, setGlobalFilter] = useState('')
 
+  const [viewSuratOpen, setViewSuratOpen] = useState(false) // State to control modal
+  const [selectedSurat, setSelectedSurat] = useState(null)  // State for selected surat
   // Hooks
+
+  const handleViewSurat = (surat) => {
+    setSelectedSurat(surat)
+    setViewSuratOpen(true)
+  }
   const columns = useMemo(
     () => [
       {
@@ -296,7 +301,7 @@ const SuratListTable = () => {
             variant='tonal'
             label={row.original.statusSurat}
             size='small'
-            color={userStatusObj[row.original.statusSurat]}
+            color={statusColor[row.original.statusSurat]}
             className='capitalize'
           />
         )
@@ -313,13 +318,11 @@ const SuratListTable = () => {
         header: 'Action',
         cell: ({ row }) => (
           <div className='flex items-center'>
+            <IconButton onClick={() => handleViewSurat(row.original)}>
+              <i className='tabler-eye text-textSecondary' />
+            </IconButton>
             <IconButton onClick={() => setData(data?.filter(surat => surat.id !== row.original.id))}>
               <i className='tabler-trash text-textSecondary' />
-            </IconButton>
-            <IconButton>
-              <Link href={'/apps/surat/view'} className='flex'>
-                <i className='tabler-eye text-textSecondary' />
-              </Link>
             </IconButton>
             <OptionMenu
               iconButtonProps={{ size: 'medium' }}
@@ -496,6 +499,13 @@ const SuratListTable = () => {
         userData={data}
         setData={setData}
       />
+      {selectedSurat && (
+        <ViewSurat
+          open={viewSuratOpen}
+          handleClose={() => setViewSuratOpen(false)}
+          suratData={selectedSurat}
+        />
+      )}
     </>
   )
 }

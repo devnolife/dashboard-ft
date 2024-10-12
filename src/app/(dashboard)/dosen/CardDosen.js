@@ -19,7 +19,7 @@ const dosenData = {
   nik: '9876543210',
   contact: '+62 812 3456 7890',
   language: ['Indonesia', 'English'],
-  prodi: 'Informatika',
+  prodi: 'Infor  matika',
   fakultas: 'Teknik',
   kota: 'Jakarta'
 }
