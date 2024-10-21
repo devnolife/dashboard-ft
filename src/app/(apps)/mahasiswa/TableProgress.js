@@ -95,7 +95,7 @@ const TableProgress = () => {
   const columns = useMemo(
     () => [
       columnHelper.accessor('progress', {
-        header: 'List Progress',
+        header: 'Progress Akademik',
         cell: ({ row }) => {
 
           const isDisabled = row.original.status === 'nonaktif'

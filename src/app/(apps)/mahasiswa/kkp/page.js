@@ -4,7 +4,9 @@ import StepWizard from "./StepWizard"
 import Dashboard from "./dashboard"
 
 const Page = () => {
-  const statusMahasiswa = "mengajukan"
+  const statusMahasiswa = "sedangKKP"
+
+
   return (
     <>
       {

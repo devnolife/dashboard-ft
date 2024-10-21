@@ -1,6 +1,7 @@
 'use client'
 
 import React, { useEffect, useState } from 'react';
+
 import {
   Card, CardContent, Typography, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper,
   IconButton, Dialog, DialogTitle, DialogContent, TextField, DialogActions, Button, DialogContentText
@@ -20,6 +21,7 @@ const MasalahSurat = () => {
       try {
         const response = await fetch('http://localhost:8080/api/masalah-surat');
         const data = await response.json();
+
         setMasalahSurat(data.data); // Update the state with fetched data
         setLoading(false);
       } catch (error) {
@@ -42,6 +44,7 @@ const MasalahSurat = () => {
 
   const handleSaveMasalah = async () => {
     const url = `http://localhost:8080/api/masalah-surat/${currentMasalah.id}`;
+
     try {
       const response = await fetch(url, {
         method: 'PUT',
@@ -53,7 +56,9 @@ const MasalahSurat = () => {
           masalah: currentMasalah.masalah,
         }),
       });
+
       const result = await response.json();
+
       setMasalahSurat(
         masalahSurat.map((item) => (item.id === currentMasalah.id ? result.data : item))
       );
@@ -74,6 +79,7 @@ const MasalahSurat = () => {
 
   const handleDeleteMasalah = async () => {
     const url = `http://localhost:8080/api/masalah-surat/${deleteId}`;
+
     try {
       await fetch(url, {
         method: 'DELETE',

@@ -1,8 +1,10 @@
 'use client';
 
 import React, { useState } from 'react';
+
 import { Container, TextField, Typography, Grid, Button, Box, Card, CardContent, Pagination, Avatar } from '@mui/material';
 import { useDropzone } from 'react-dropzone';
+
 import AppReactDatepicker from '@/libs/styles/AppReactDatepicker';
 import CustomTextField from '@core/components/mui/TextField';
 
@@ -15,10 +17,13 @@ const FormKegiatan = () => {
 
   const handleAddActivity = () => {
     const currentActivity = activities[currentPage - 1];
+
     if (!currentActivity.date || !currentActivity.activity || !currentActivity.upload) {
       setErrorMessage('Semua field harus diisi sebelum menambahkan kegiatan baru.');
+
       return;
     }
+
     setErrorMessage('');
     setActivities([...activities, { date: '', activity: '', upload: '' }]);
     setCurrentPage(Math.ceil((activities.length + 1) / itemsPerPage));
@@ -26,6 +31,7 @@ const FormKegiatan = () => {
 
   const handleChange = (index, field, value) => {
     const updatedActivities = [...activities];
+
     updatedActivities[index][field] = value;
     setActivities(updatedActivities);
   };
@@ -36,17 +42,22 @@ const FormKegiatan = () => {
 
   const handleFileUpload = (index, files) => {
     const updatedActivities = [...activities];
+
     updatedActivities[index].upload = files[0];
     setActivities(updatedActivities);
   };
 
   const handleSubmit = () => {
     const hasIncompleteActivity = activities.some(activity => !activity.date || !activity.activity || !activity.upload);
+
     if (hasIncompleteActivity) {
       setErrorMessage('Semua field harus diisi lengkap sebelum disimpan.');
+
       return;
     }
+
     setErrorMessage('');
+
     // Lakukan tindakan submit di sini, seperti mengirim data ke server
     console.log('Data berhasil disimpan!');
   };
@@ -66,7 +77,9 @@ const FormKegiatan = () => {
       },
       onDrop: acceptedFiles => {
         const uploadedFiles = acceptedFiles.map(file => Object.assign(file));
+
         setFiles(uploadedFiles);
+
         if (onFileUpload) {
           onFileUpload(uploadedFiles);
         }

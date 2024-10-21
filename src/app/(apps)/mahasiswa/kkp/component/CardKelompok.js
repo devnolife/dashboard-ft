@@ -1,6 +1,9 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 'use client';
 
 import React, { useState, useEffect } from 'react';
+
+
 // MUI Imports
 import Grid from '@mui/material/Grid';
 import Avatar from '@mui/material/Avatar';
@@ -13,8 +16,9 @@ import IconButton from '@mui/material/IconButton';
 import classnames from 'classnames';
 
 // Component Imports
-import CustomIconButton from '@core/components/mui/IconButton';
 import { Link } from '@mui/material';
+
+import CustomIconButton from '@core/components/mui/IconButton';
 
 const CardKelompok = () => {
   const data = [
