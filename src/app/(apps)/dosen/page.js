@@ -1,35 +1,76 @@
+/* eslint-disable @next/next/no-async-client-component */
+'use client'
+
+import { useState } from 'react'
+
 import dynamic from 'next/dynamic'
 
 import Grid from '@mui/material/Grid'
+import Tab from '@mui/material/Tab'
+import TabContext from '@mui/lab/TabContext'
+import TabPanel from '@mui/lab/TabPanel'
 
-import { getPricingData } from '@/app/server/actions'
-import CardDosen from './CardDosen'
-import TabContent from './TabContent'
+import CustomTabList from '@core/components/mui/TabList'
 
-const ListPa = dynamic(() => import('@views/user/view/user-right/overview'))
-const SecurityTab = dynamic(() => import('@views/user/view/user-right/security'))
-const BillingPlans = dynamic(() => import('@views/user/view/user-right/billing-plans'))
-const NotificationsTab = dynamic(() => import('@views/user/view/user-right/notifications'))
-const ConnectionsTab = dynamic(() => import('@views/user/view/user-right/connections'))
+// Dynamic imports
+const ListPa = dynamic(() => import('./tabPage/pa'))
 
-const tabContentList = data => ({
-  listpa: <ListPa />,
-  security: <SecurityTab />,
-  'billing-plans': <BillingPlans data={data} />,
-  notifications: <NotificationsTab />,
-  connections: <ConnectionsTab />
-})
+const TabContent = () => {
+  const [activeTab, setActiveTab] = useState('overview')
 
-const DashboardDosen = async () => {
-  const data = await getPricingData()
+  const handleChange = (event, value) => {
+    setActiveTab(value)
+  }
+
+  // Render content based on activeTab
+  const renderTabContent = () => {
+    switch (activeTab) {
+      case 'listpa':
+        return <ListPa />
+      default:
+        return <div>Konten tidak tersedia</div>
+    }
+  }
 
   return (
-    <Grid container spacing={6}>
-      <Grid item xs={12} lg={4} md={5}>
-        <CardDosen />
-      </Grid>
-      <Grid item xs={12} lg={8} md={7}>
-        <TabContent tabContentList={tabContentList(data)} />
+    <>
+      <TabContext value={activeTab}>
+        <Grid container spacing={6}>
+          <Grid item xs={12}>
+            <CustomTabList onChange={handleChange} variant='scrollable' pill='true'>
+              <Tab icon={<i className='tabler-users' />} value='listpa' label='Akademik' iconPosition='start' />
+              <Tab icon={<i className='tabler-lock' />} value='overview' label='KKP' iconPosition='start' />
+              <Tab
+                icon={<i className='tabler-bookmark' />}
+                value='billing-plans'
+                label='Ujian Akhir Semester'
+                iconPosition='start'
+              />
+              <Tab
+                icon={<i className='tabler-bell' />}
+                value='notifications'
+                label='Notifications'
+                iconPosition='start'
+              />
+              <Tab icon={<i className='tabler-link' />} value='connections' label='Connections' iconPosition='start' />
+            </CustomTabList>
+          </Grid>
+          <Grid item xs={12}>
+            <TabPanel value={activeTab} className='p-0'>
+              {renderTabContent()}
+            </TabPanel>
+          </Grid>
+        </Grid>
+      </TabContext>
+    </>
+  )
+}
+
+const DashboardDosen = () => {
+  return (
+    <Grid container spacing={2}>
+      <Grid item xs={12} lg={12}>
+        <TabContent />
       </Grid>
     </Grid>
   )

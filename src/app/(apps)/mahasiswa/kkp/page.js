@@ -6,7 +6,6 @@ import Dashboard from "./dashboard"
 const Page = () => {
   const statusMahasiswa = "sedangKKP"
 
-
   return (
     <>
       {
