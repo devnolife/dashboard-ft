@@ -18,7 +18,7 @@ import IconButton from '@mui/material/IconButton'
 import { styled } from '@mui/material/styles'
 import TablePagination from '@mui/material/TablePagination'
 import MenuItem from '@mui/material/MenuItem'
-import ViewSurat from './ViewSurat'
+
 
 // Third-party Imports
 import classnames from 'classnames'
@@ -35,6 +35,8 @@ import {
   getPaginationRowModel,
   getSortedRowModel
 } from '@tanstack/react-table'
+
+import ViewSurat from './ViewSurat'
 
 import TableFilters from './TableFilter'
 import CreatedSurat from './CratedSurat'
@@ -54,9 +56,11 @@ const Icon = styled('i')({})
 
 const fuzzyFilter = (row, columnId, value, addMeta) => {
   const itemRank = rankItem(row.getValue(columnId), value)
+
   addMeta({
     itemRank
   })
+
   return itemRank.passed
 }
 
@@ -90,6 +94,7 @@ const statusColor = {
   'Menunggu persetujuan': 'info',
   Disetujui: 'success'
 }
+
 const db = [
   {
     id: 1,
@@ -232,6 +237,7 @@ const SuratListTable = () => {
     setSelectedSurat(surat)
     setViewSuratOpen(true)
   }
+
   const columns = useMemo(
     () => [
       {
@@ -348,6 +354,7 @@ const SuratListTable = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
     [data, filteredData]
   )
+
   const table = useReactTable({
     data: filteredData,
     columns,

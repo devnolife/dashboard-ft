@@ -44,7 +44,7 @@ const Layout = async ({ children }) => {
         }
       />
       <ScrollToTop className='mui-fixed'>
-        <Button variant='contained' className='is-10 bs-10 rounded-full p-0 min-is-0 flex items-center justify-center'>
+        <Button variant='contained' className='flex items-center justify-center p-0 rounded-full is-10 bs-10 min-is-0'>
           <i className='tabler-arrow-up' />
         </Button>
       </ScrollToTop>

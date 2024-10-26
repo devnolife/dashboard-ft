@@ -9,8 +9,6 @@ import Grid from '@mui/material/Grid'
 
 import CustomTabList from '@core/components/mui/TabList'
 
-
-
 const TabContent = ({ tabContentList }) => {
 
   const [activeTab, setActiveTab] = useState('overview')

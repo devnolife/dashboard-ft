@@ -1,4 +1,4 @@
-/* eslint-disable @next/next/no-async-client-component */
+
 'use client'
 
 import { useState } from 'react'
@@ -12,7 +12,7 @@ import TabPanel from '@mui/lab/TabPanel'
 
 import CustomTabList from '@core/components/mui/TabList'
 
-// Dynamic imports
+
 const ListPa = dynamic(() => import('./tabPage/pa'))
 
 const TabContent = () => {
@@ -22,7 +22,6 @@ const TabContent = () => {
     setActiveTab(value)
   }
 
-  // Render content based on activeTab
   const renderTabContent = () => {
     switch (activeTab) {
       case 'listpa':
