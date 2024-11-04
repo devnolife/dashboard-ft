@@ -19,7 +19,7 @@ const MasalahSurat = () => {
   useEffect(() => {
     const fetchMasalahSurat = async () => {
       try {
-        const response = await fetch('http://localhost:8080/api/masalah-surat');
+        const response = await fetch('https://devnolife.site/api/masalah-surat');
         const data = await response.json();
 
         setMasalahSurat(data.data); // Update the state with fetched data
@@ -43,7 +43,7 @@ const MasalahSurat = () => {
   };
 
   const handleSaveMasalah = async () => {
-    const url = `http://localhost:8080/api/masalah-surat/${currentMasalah.id}`;
+    const url = `https://devnolife.site/api/masalah-surat/${currentMasalah.id}`;
 
     try {
       const response = await fetch(url, {
@@ -78,7 +78,7 @@ const MasalahSurat = () => {
   };
 
   const handleDeleteMasalah = async () => {
-    const url = `http://localhost:8080/api/masalah-surat/${deleteId}`;
+    const url = `https://devnolife.site/api/masalah-surat/${deleteId}`;
 
     try {
       await fetch(url, {

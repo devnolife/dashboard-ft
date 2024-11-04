@@ -26,6 +26,9 @@ import TextField from '@mui/material/TextField'
 import IconButton from '@mui/material/IconButton'
 import DeleteIcon from '@mui/icons-material/Delete'
 import EditIcon from '@mui/icons-material/Edit'
+import Card from '@mui/material/Card'
+import CardContent from '@mui/material/CardContent'
+import Box from '@mui/material/Box'
 
 import classnames from 'classnames'
 
@@ -65,7 +68,7 @@ const SettingSurat = () => {
       }
 
       try {
-        const response = await fetch(`http://localhost:8080/api/${activeTab}`)
+        const response = await fetch(`https://devnolife.site/api/${activeTab}`)
         const result = await response.json()
 
         setTabData(prevData => ({
@@ -139,7 +142,7 @@ const SettingSurat = () => {
   const handleSaveChanges = async () => {
     // Implement API call to update data
     try {
-      const response = await fetch(`http://localhost:8080/api/${activeTab}/${selectedRow.id}`, {
+      const response = await fetch(`https://devnolife.site/api/${activeTab}/${selectedRow.id}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -149,11 +152,9 @@ const SettingSurat = () => {
 
       const result = await response.json()
 
-
       // Update state with new data
       setTabData(prevData => {
         const newData = prevData[activeTab].map(item => (item.id === selectedRow.id ? result.data : item))
-
 
         return {
           ...prevData,
@@ -168,14 +169,13 @@ const SettingSurat = () => {
 
   const handleConfirmDelete = async () => {
     try {
-      await fetch(`http://localhost:8080/api/${activeTab}/${selectedRow.id}`, {
+      await fetch(`https://devnolife.site/api/${activeTab}/${selectedRow.id}`, {
         method: 'DELETE',
       })
 
       // Update state by removing deleted item
       setTabData(prevData => {
         const newData = prevData[activeTab].filter(item => item.id !== selectedRow.id)
-
 
         return {
           ...prevData,
@@ -232,104 +232,108 @@ const SettingSurat = () => {
         </Grid>
         <Grid item xs={12} sm={7} md={8} xl={9}>
           <TabPanel value={activeTab} className="p-0">
-            <div className="flex items-center gap-4 mbe-4">
-              <CustomAvatar skin="light" color="primary" variant="rounded" size={50}>
-                <i
-                  className={classnames(
-                    activeTab === 'jenis-surat'
-                      ? 'tabler-file-text'
-                      : activeTab === 'masalah-surat'
-                        ? 'tabler-alert-circle'
-                        : activeTab === 'tujuan-surat'
-                          ? 'tabler-map-pin'
-                          : activeTab === 'ketentuan-surat'
-                            ? 'tabler-file-description'
-                            : activeTab === 'profile-admin'
-                              ? 'tabler-user'
-                              : '',
-                    'text-4xl'
-                  )}
-                />
-              </CustomAvatar>
-              <div>
-                <Typography variant="h4">
-                  {activeTab === 'jenis-surat' && 'Jenis Surat'}
-                  {activeTab === 'masalah-surat' && 'Masalah Surat'}
-                  {activeTab === 'tujuan-surat' && 'Tujuan Surat'}
-                  {activeTab === 'ketentuan-surat' && 'Ketentuan Surat'}
-                  {activeTab === 'profile-admin' && 'Profile Admin'}
-                </Typography>
-                <Typography variant="h6">
-                  {activeTab === 'jenis-surat' && 'Daftar Jenis Surat'}
-                  {activeTab === 'masalah-surat' && 'Daftar Masalah Surat'}
-                  {activeTab === 'tujuan-surat' && 'Daftar Tujuan Surat'}
-                  {activeTab === 'ketentuan-surat' && 'Informasi Ketentuan Surat'}
-                  {activeTab === 'profile-admin' && 'Pengaturan Profil Admin'}
-                </Typography>
-              </div>
-            </div>
-            {loading ? (
-              <Typography>Loading...</Typography>
-            ) : error ? (
-              <Typography>Error fetching data</Typography>
-            ) : (
-              <>
-                {activeTab === 'profile-admin' ||
-                  activeTab === 'ketentuan-surat' ||
-                  activeTab === 'tujuan-surat' ? (
-
-                  // Placeholder content for tabs without data
-                  <Typography variant="body1">
-                    Konten {activeTab.replace('-', ' ')} akan ditampilkan di sini.
-                  </Typography>
+            <Card>
+              <CardContent>
+                <Box className="flex items-center gap-4 mbe-4">
+                  <CustomAvatar skin="light" color="primary" variant="rounded" size={50}>
+                    <i
+                      className={classnames(
+                        activeTab === 'jenis-surat'
+                          ? 'tabler-file-text'
+                          : activeTab === 'masalah-surat'
+                            ? 'tabler-alert-circle'
+                            : activeTab === 'tujuan-surat'
+                              ? 'tabler-map-pin'
+                              : activeTab === 'ketentuan-surat'
+                                ? 'tabler-file-description'
+                                : activeTab === 'profile-admin'
+                                  ? 'tabler-user'
+                                  : '',
+                        'text-4xl'
+                      )}
+                    />
+                  </CustomAvatar>
+                  <div>
+                    <Typography variant="h4">
+                      {activeTab === 'jenis-surat' && 'Jenis Surat'}
+                      {activeTab === 'masalah-surat' && 'Masalah Surat'}
+                      {activeTab === 'tujuan-surat' && 'Tujuan Surat'}
+                      {activeTab === 'ketentuan-surat' && 'Ketentuan Surat'}
+                      {activeTab === 'profile-admin' && 'Profile Admin'}
+                    </Typography>
+                    <Typography variant="h6">
+                      {activeTab === 'jenis-surat' && 'Daftar Jenis Surat'}
+                      {activeTab === 'masalah-surat' && 'Daftar Masalah Surat'}
+                      {activeTab === 'tujuan-surat' && 'Daftar Tujuan Surat'}
+                      {activeTab === 'ketentuan-surat' && 'Informasi Ketentuan Surat'}
+                      {activeTab === 'profile-admin' && 'Pengaturan Profil Admin'}
+                    </Typography>
+                  </div>
+                </Box>
+                {loading ? (
+                  <Typography>Loading...</Typography>
+                ) : error ? (
+                  <Typography>Error fetching data</Typography>
                 ) : (
-                  <TableContainer component={Paper}>
-                    <Table sx={{ minWidth: 650 }} aria-label="simple table">
-                      <TableHead>
-                        <TableRow>
-                          {columns[activeTab].map(column => (
-                            <TableCell key={column.field}>
-                              <Typography variant="subtitle2">{column.headerName}</Typography>
-                            </TableCell>
-                          ))}
-                          <TableCell align="center">
-                            <Typography variant="subtitle2">Actions</Typography>
-                          </TableCell>
-                        </TableRow>
-                      </TableHead>
-                      <TableBody>
-                        {data.map((row, index) => (
-                          <TableRow
-                            key={index}
-                            sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
-                          >
-                            {columns[activeTab].map(column => (
-                              <TableCell key={column.field}>
-                                {row[column.field]}
+                  <>
+                    {activeTab === 'profile-admin' ||
+                      activeTab === 'ketentuan-surat' ||
+                      activeTab === 'tujuan-surat' ? (
+
+                      // Placeholder content for tabs without data
+                      <Typography variant="body1">
+                        Konten {activeTab.replace('-', ' ')} akan ditampilkan di sini.
+                      </Typography>
+                    ) : (
+                      <TableContainer component={Paper}>
+                        <Table sx={{ minWidth: 650 }} aria-label="simple table">
+                          <TableHead>
+                            <TableRow>
+                              {columns[activeTab].map(column => (
+                                <TableCell key={column.field}>
+                                  <Typography variant="subtitle2">{column.headerName}</Typography>
+                                </TableCell>
+                              ))}
+                              <TableCell align="center">
+                                <Typography variant="subtitle2">Actions</Typography>
                               </TableCell>
+                            </TableRow>
+                          </TableHead>
+                          <TableBody>
+                            {data.map((row, index) => (
+                              <TableRow
+                                key={index}
+                                sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+                              >
+                                {columns[activeTab].map(column => (
+                                  <TableCell key={column.field}>
+                                    {row[column.field]}
+                                  </TableCell>
+                                ))}
+                                <TableCell align="center">
+                                  <IconButton
+                                    aria-label="edit"
+                                    onClick={() => handleEditOpen(row)}
+                                  >
+                                    <EditIcon />
+                                  </IconButton>
+                                  <IconButton
+                                    aria-label="delete"
+                                    onClick={() => handleDeleteOpen(row)}
+                                  >
+                                    <DeleteIcon />
+                                  </IconButton>
+                                </TableCell>
+                              </TableRow>
                             ))}
-                            <TableCell align="center">
-                              <IconButton
-                                aria-label="edit"
-                                onClick={() => handleEditOpen(row)}
-                              >
-                                <EditIcon />
-                              </IconButton>
-                              <IconButton
-                                aria-label="delete"
-                                onClick={() => handleDeleteOpen(row)}
-                              >
-                                <DeleteIcon />
-                              </IconButton>
-                            </TableCell>
-                          </TableRow>
-                        ))}
-                      </TableBody>
-                    </Table>
-                  </TableContainer>
+                          </TableBody>
+                        </Table>
+                      </TableContainer>
+                    )}
+                  </>
                 )}
-              </>
-            )}
+              </CardContent>
+            </Card>
           </TabPanel>
         </Grid>
       </Grid>

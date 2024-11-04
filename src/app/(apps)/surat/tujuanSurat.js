@@ -1,9 +1,7 @@
 'use client'
 
-// React Imports
 import { useState, useEffect, Fragment } from 'react'
 
-// MUI Imports
 import Card from '@mui/material/Card'
 import IconButton from '@mui/material/IconButton'
 import Table from '@mui/material/Table'
@@ -29,26 +27,25 @@ const CollapsibleTable = () => {
   const [data, setData] = useState([]) // Data dari API
   const [loading, setLoading] = useState(true)
 
-  // State untuk dialog tambah/edit
   const [openDialog, setOpenDialog] = useState(false)
   const [dialogType, setDialogType] = useState('add') // 'add' atau 'edit'
   const [currentData, setCurrentData] = useState({ id: null, kode: '', nama: '', tujuan: [] })
 
-  // State untuk dialog konfirmasi hapus
   const [openDeleteDialog, setOpenDeleteDialog] = useState(false)
   const [deleteId, setDeleteId] = useState(null)
 
-  // State untuk edit dan tambah tujuan
   const [openTujuanDialog, setOpenTujuanDialog] = useState(false)
   const [currentTujuan, setCurrentTujuan] = useState({ id: null, kode: '', nama: '', id_jenis: null })
   const [parentJenisSuratId, setParentJenisSuratId] = useState(null)
 
-  // Mengambil data dari API
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch('http://localhost:8080/api/jenis-surat')
+        const response = await fetch('https://devnolife.site/api/tujuan-surat')
         const result = await response.json()
+
+        console.log("🚀 ~ fetchData ~ result:", result)
+
         setData(result.data)
         setLoading(false)
       } catch (error) {
@@ -66,11 +63,13 @@ const CollapsibleTable = () => {
 
   const handleOpenDialog = (type, row = null) => {
     setDialogType(type)
+
     if (type === 'edit' && row) {
       setCurrentData(row)
     } else {
       setCurrentData({ id: null, kode: '', nama: '', tujuan: [] })
     }
+
     setOpenDialog(true)
   }
 
@@ -81,8 +80,9 @@ const CollapsibleTable = () => {
   const handleSaveData = async () => {
     const url =
       dialogType === 'add'
-        ? 'http://localhost:8080/api/jenis-surat'
-        : `http://localhost:8080/api/jenis-surat/${currentData.id}`
+        ? 'https://devnolife.site/api/jenis-surat'
+        : `https://devnolife.site/api/jenis-surat/${currentData.id}`
+
     const method = dialogType === 'add' ? 'POST' : 'PUT'
 
     try {
@@ -120,7 +120,7 @@ const CollapsibleTable = () => {
 
   const handleDeleteData = async () => {
     try {
-      await fetch(`http://localhost:8080/api/jenis-surat/${deleteId}`, {
+      await fetch(`https://devnolife.site/api/jenis-surat/${deleteId}`, {
         method: 'DELETE'
       })
       setData(data.filter((item) => item.id !== deleteId))
@@ -136,7 +136,6 @@ const CollapsibleTable = () => {
     setOpenTujuanDialog(true)
   }
 
-  // Handle tambah tujuan
   const handleAddTujuan = (id_jenis) => {
     setCurrentTujuan({ id: null, kode: '', nama: '', id_jenis })
     setParentJenisSuratId(id_jenis)
@@ -149,9 +148,10 @@ const CollapsibleTable = () => {
 
   const handleSaveTujuan = async () => {
     const method = currentTujuan.id ? 'PUT' : 'POST'
+
     const url = currentTujuan.id
-      ? `http://localhost:8080/api/tujuan/${currentTujuan.id}`
-      : `http://localhost:8080/api/tujuan`
+      ? `https://devnolife.site/api/tujuan/${currentTujuan.id}`
+      : `https://devnolife.site/api/tujuan`
 
     const body = {
       kode: currentTujuan.kode,
@@ -167,9 +167,9 @@ const CollapsibleTable = () => {
         },
         body: JSON.stringify(body)
       })
+
       const result = await response.json()
 
-      // Jika tujuan baru ditambahkan
       if (method === 'POST') {
         setData(
           data.map((item) =>
@@ -201,7 +201,7 @@ const CollapsibleTable = () => {
 
   const handleDeleteTujuan = async (tujuanId, jenisSuratId) => {
     try {
-      await fetch(`http://localhost:8080/api/tujuan/${tujuanId}`, {
+      await fetch(`https://devnolife.site/api/tujuan/${tujuanId}`, {
         method: 'DELETE'
       })
       setData(
@@ -304,7 +304,6 @@ const CollapsibleTable = () => {
         </Table>
       </TableContainer>
 
-      {/* Dialog Tambah/Edit Jenis Surat */}
       <Dialog open={openDialog} onClose={handleCloseDialog} maxWidth='sm' fullWidth>
         <DialogTitle>{dialogType === 'add' ? 'Tambah Jenis Surat' : 'Edit Jenis Surat'}</DialogTitle>
         <DialogContent dividers>
@@ -358,7 +357,6 @@ const CollapsibleTable = () => {
         </DialogActions>
       </Dialog>
 
-      {/* Dialog Konfirmasi Hapus */}
       <Dialog open={openDeleteDialog} onClose={() => setOpenDeleteDialog(false)} maxWidth='xs' fullWidth>
         <DialogTitle>Hapus Jenis Surat</DialogTitle>
         <DialogContent>

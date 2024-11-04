@@ -13,7 +13,7 @@ import TabPanel from '@mui/lab/TabPanel'
 import CustomTabList from '@core/components/mui/TabList'
 
 
-const ListPa = dynamic(() => import('./tabPage/pa'))
+const ListPa = dynamic(() => import('./tabPage/KartuPa'))
 
 const TabContent = () => {
   const [activeTab, setActiveTab] = useState('overview')

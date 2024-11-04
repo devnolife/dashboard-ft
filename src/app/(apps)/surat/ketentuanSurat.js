@@ -66,7 +66,7 @@ const KetentuanSurat = () => {
 
   useEffect(() => {
     setLoading(true);
-    fetch('http://localhost:8080/api/ketentuan-surat')
+    fetch('https://devnolife.site/api/ketentuan-surat')
       .then((response) => response.json())
       .then((json) => {
         setData(json.data);
@@ -80,7 +80,7 @@ const KetentuanSurat = () => {
   }, []);
 
   useEffect(() => {
-    fetch('http://localhost:8080/api/masalah-surat')
+    fetch('https://devnolife.site/api/masalah-surat')
       .then((response) => response.json())
       .then((json) => {
         setMasalahData(json.data);
@@ -89,7 +89,7 @@ const KetentuanSurat = () => {
   }, []);
 
   useEffect(() => {
-    fetch('http://localhost:8080/api/tujuan-surat')
+    fetch('https://devnolife.site/api/tujuan-surat')
       .then((response) => response.json())
       .then((json) => {
         setTujuanData(json.data);
@@ -157,7 +157,7 @@ const KetentuanSurat = () => {
       count: localState[selectedItem.id].selectedCount,
     };
 
-    fetch(`http://localhost:8080/api/ketentuan-surat/${selectedItem.id}`, {
+    fetch(`https://devnolife.site/api/ketentuan-surat/${selectedItem.id}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
