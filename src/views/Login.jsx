@@ -86,7 +86,7 @@ const LoginV2 = ({ mode }) => {
   const handleClickShowPassword = () => setIsPasswordShown(show => !show)
 
   return (
-    <div className='flex bs-full justify-center'>
+    <div className='flex justify-center bs-full'>
       <div
         className={classnames(
           'flex bs-full items-center justify-center flex-1 min-bs-[100dvh] relative p-6 max-md:hidden',
@@ -139,7 +139,7 @@ const LoginV2 = ({ mode }) => {
                 )
               }}
             />
-            <div className='flex justify-between items-center gap-x-3 gap-y-1 flex-wrap'>
+            <div className='flex flex-wrap items-center justify-between gap-x-3 gap-y-1'>
               <FormControlLabel control={<Checkbox />} label='Remember me' />
               <Typography className='text-end' color='primary' component={Link}>
                 Forgot password?
@@ -148,7 +148,7 @@ const LoginV2 = ({ mode }) => {
             <Button fullWidth variant='contained' type='submit'>
               Login
             </Button>
-            <div className='flex justify-center items-center flex-wrap gap-2'>
+            <div className='flex flex-wrap items-center justify-center gap-2'>
               <Typography>New on our platform?</Typography>
               <Typography component={Link} color='primary'>
                 Create an account
